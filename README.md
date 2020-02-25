@@ -4,7 +4,7 @@ A book demo
 
 ```latex
 
-\documentclass[10pt,letter]{book}
+\documentclass[10pt,letter,space]{book}
 
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -53,10 +53,16 @@ A book demo
 \fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
 
 
+\title{\vspace{-30mm}\heiti \Huge 计算智能\\Intelligent Computing\thanks{注：国际通用的翻译方式}}
+\author{张庆科 }
+\date{\today}
 
 \begin{document}
+	\maketitle	
+	\tableofcontents
 	\frontmatter  % 前文区设置
-\tableofcontents	
+	
+	
 %   ---------------------------------------------------------
 
    \mainmatter   %以下为主文区设置
@@ -65,6 +71,7 @@ A book demo
 \part{上篇}
 	\chapter{绪论}
 %	\pagenumbering{Roman}
+The following part can be regarded as an illustration of 计算智能 namely， intelligence computation。
 	\section{计算智能概念}
     \lipsum[1-4]
 	\section{计算智能原理}
@@ -91,7 +98,9 @@ A book demo
 	\lipsum[25-30]
 	
 \clearpage{\pagestyle{fancy}\cleardoublepage}
+
 %   ---------------------------------------------------------
+
 \chapter{计算智能和机器学习}
 %\pagenumbering{arabic}
 \section{机器学习}
@@ -104,7 +113,7 @@ A book demo
 中文显示， 能正常的显示任何的字符了
 \clearpage{\pagestyle{empty}\cleardoublepage}
 
-\backmatter  % 后文区
+
 
 \part{下篇}
 \chapter{进化计算}
@@ -129,6 +138,11 @@ A book demo
 \lipsum[19-20]
 \section{模糊系统原理}
 \lipsum[20-21]
+
+
+%-----------------------------
+\backmatter  % 后文区
+
 \end{document}
 
 ```
