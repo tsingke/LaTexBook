@@ -1,0 +1,119 @@
+\documentclass[10pt,b5paper, fontset=mac]{ctexbook}%务必带上 fontset=mac
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{titlesec}
+
+\usepackage{lipsum}  %英文随机字母
+\usepackage{zhlipsum}%中文随机汉子
+
+
+\usepackage{hyperref}  % 超链接书签功能
+
+\usepackage{lastpage} % 计算总的页面数
+\usepackage{emptypage}% 清除空白页的页眉
+\usepackage{ctexcap}  % 使用系统内置的全局标题方案
+
+
+%%%%%%%%%%%%%%%%  1. 字体设置  %%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+
+%-------------------设置全局字体模板--------------
+%\setmainfont{ }     %衬线字体  
+%\setsansfont{ }      %无衬线字体  
+%\setmonofont{ }    %等宽字体，一般是打印机字体(中文都是等宽的)
+
+\setCJKmainfont[ItalicFont={Kaiti SC}, BoldFont={Heiti SC Medium}]{Songti SC} %设置默认中文字体
+%\setmainfont{Times New Roman}  %设置默认英文字体 
+
+%-------------------设置本地字体模板--------------
+%\setCJKfamilyfont{新字体名}{系统字体名}
+%\newcommand{\新名}{\CJKfamily{新名}}
+
+\setCJKfamilyfont{pfzt}{PingFang SC}
+\newcommand{\pf}{\CJKfamily{pfzt}}
+
+
+\setCJKfamilyfont{pfss}{PingFang SC Semibold}
+\newcommand{\pfss}{\CJKfamily{pfss}}
+
+
+%%%%%%%%%%%%%%%%  2. 页眉页脚设置  %%%%%%%%%%%%%%%%
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}  %设置格式显示方式，不可少
+%\pagestyle{headings}% 系统默认设置的版式，也是四大版式之一，其他的还有empty，plain和myheading
+
+%设置页眉-左右页（E: L,C,R    ||   O:L,C,R）
+
+\fancyhf{}  % 清除之前设置的fancy的版式
+
+%----设置页眉------
+\fancyhead[EL]{\thepage}                           %设置左页页眉-左侧显示当前页码
+\fancyhead[ER]{\nouppercase{\leftmark}} % 设置左页页眉-页眉右侧内容为章标题，且标题内的英文为小写形式
+
+\fancyhead[OL]{\rightmark}                        %设置右页页眉-页眉的左侧内容显示为小节标题
+\fancyhead[OR]{\thepage}                           %设置右页页眉-右侧显示当前页码
+
+\renewcommand{\headrulewidth}{0.4pt}   %设置页眉线-宽度为 0.4pt，默认长度和系统的\textwidth 相同
+
+\renewcommand{\footrulewidth}{0pt}       %设置页脚线的宽度
+
+%-------设置页脚------
+
+%\fancyfoot[C]{第 \thepage / \pageref{LastPage}页}%第 1/10页
+%\renewcommand{\footrulewidth}{0.4pt}
+
+%------清除各章节首页标题的页眉和页脚，页码等内容[重要]---
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}
+%\fancypagestyle{plain}{\fancyhf{}\renewcommand{\footrulewidth}{0pt}}
+
+% "第一章" 改为 "第1章"显示
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+
+%设置章节标题的位置
+\CTEXsetup[beforeskip={-23pt},afterskip={20pt plus 2pt minus 2pt}]{chapter}
+
+
+%---------------------设置标题内容----------------------
+\title{ \pfss 书籍写作模板\\ Using latex for Mac}
+\author{张庆科}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+		
+	
+		\chapter{绪论}
+		
+		我是{\pf 苹果方字体}
+		
+		\zhlipsum[1]
+	\lipsum[2]
+	\section{思想起源}
+	\zhlipsum[5]
+		\section{奇妙算法}
+	\zhlipsum[3]
+	
+{\songti 我是宋体 Default},{\heiti 我是黑体 Bold},{\kaishu 我是楷体 Italian}，{\fangsong 我是仿宋}
+
+		\chapter{机器学习}
+\zhlipsum[2]
+\lipsum[1-2]
+\section{监督学习}
+\zhlipsum[1-3]
+\section{非监督学习}
+\zhlipsum[2-6]
+
+
+	
+	
+	
+	
+	
+	
+	
+\end{document}
